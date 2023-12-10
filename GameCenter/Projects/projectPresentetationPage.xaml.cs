@@ -1,33 +1,37 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
 namespace GameCenter.Projects
 {
-    /// <summary>
-    /// Interaction logic for projectPresentetationPage.xaml
-    /// </summary>
     public partial class projectPresentetationPage : Window
     {
+        private Func<Window>? createProject;
         private Window? currentProject;
-        public projectPresentetationPage()
+
+        public projectPresentetationPage(Func<Window> createProject)
         {
+            this.createProject = createProject;
             InitializeComponent();
         }
 
-        public void OnStart(string title, string projectDescription, ImageSource imageSoursce, Window project)
+        public void OnStart(string title, string projectDescription, ImageSource imageSource)
         {
             TitleLabel.Content = title;
             ProjectText.Text = projectDescription;
-            ProjectImage.Source = imageSoursce;
-            currentProject = project;
+            ProjectImage.Source = imageSource;
         }
 
         private void ProjectImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Close();
-            currentProject!.ShowDialog();
-            currentProject!.Close();
+            if (createProject != null)
+            {
+                currentProject = createProject();
+                Close();
+                currentProject.ShowDialog();
+                currentProject.Close();
+            }
         }
     }
 }

@@ -1,0 +1,21 @@
+﻿<Window x:Class="GameCenter.Projects.ReactionTests.DifficultyChoice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameCenter.Projects.ReactionTests"
+        mc:Ignorable="d"
+        Title="DifficultyChoice" Height="500" Width="800">
+    <Grid>
+        <TextBlock Text="Select Difficulty Level:" HorizontalAlignment="Center" Margin="0,10,0,0" 
+                   FontSize="24" FontWeight="Bold"/>
+        <Image Name="EasyImage" MouseUp="Image_MouseUp" Margin="287,59,287,335" 
+               Source="pack://application:,,,/Images/Button_Easy.png"/>
+        <Image Name="MediumImage" MouseUp="Image_MouseUp" Margin="287,157,287,237" 
+               Source="pack://application:,,,/Images/Button_Medium.png"/>
+        <Image Name="HardImage" MouseUp="Image_MouseUp" Margin="287,263,287,131" 
+               Source="pack://application:,,,/Images/Button_Hard.png"/>
+        <Image Name="InsaneImage" MouseUp="Image_MouseUp" Margin="287,369,287,25" 
+               Source="pack://application:,,,/Images/Button_Insane.png"/>
+    </Grid>
+</Window>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameCenter.Projects"
         mc:Ignorable="d"
-        Title="projectPresentetationPage" Height="450" Width="800">
+        Title="projectPresentetationPage" Height="650" Width="630">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
@@ -13,11 +13,16 @@
             <ColumnDefinition Width="0.5*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.4*" />
-            <RowDefinition Height="0.6*" />
-            <RowDefinition Height="1.5*" />
-            <RowDefinition Height="0.3*" />
+            <RowDefinition Height="0.5*"/>
+            <!-- Increased for Title and Date -->
+            <RowDefinition Height="1.2*"/>
+            <!-- Increased for ProjectText -->
+            <RowDefinition Height="0.8*"/>
+            <!-- Decreased for ProjectImage -->
+            <RowDefinition Height="0.3*"/>
+            <!-- Remaining row -->
         </Grid.RowDefinitions>
+
 
         <Label 
             x:Name="TitleLabel"
@@ -30,37 +35,27 @@
             VerticalContentAlignment="Center" FontFamily="Arial Black" FontSize="40"
         />
 
-        <Label 
-            x:Name="DateLabel"
-            Content="Date" 
-            Grid.Row="0" 
-            Grid.Column="2" 
-            Grid.ColumnSpan="3" 
-            Background="AliceBlue"
-            HorizontalContentAlignment="Center"
-            VerticalContentAlignment="Center" 
-            FontFamily="Arial Black" 
-            FontSize="16"
-        />
-
-        <TextBox 
+        <TextBlock 
             x:Name="ProjectText"
             Grid.Column="1"
             Grid.Row="1"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
-            FontSize="16"
             TextWrapping="Wrap"
-            VerticalScrollBarVisibility="Auto"
+            FontSize="16"
+            TextAlignment="Center"
         />
         
         <Image 
             x:Name="ProjectImage" 
             Grid.Column="1"
             Grid.Row="2"
-            Margin="25"
+            Margin="2"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center" MouseLeftButtonUp="ProjectImage_MouseLeftButtonUp"
+            VerticalAlignment="Center" 
+            MouseLeftButtonUp="ProjectImage_MouseLeftButtonUp"
+            Width="150"
+            Height="150"
         />
 
     </Grid>

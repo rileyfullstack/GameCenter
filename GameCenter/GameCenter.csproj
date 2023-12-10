@@ -8,17 +8,137 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Bomb.png" />
+    <None Remove="Images\Button_click-now.png" />
+    <None Remove="Images\Button_easy.png" />
+    <None Remove="Images\Button_hard.png" />
+    <None Remove="Images\Button_im-ready.png" />
+    <None Remove="Images\Button_insane.png" />
+    <None Remove="Images\Button_medium.png" />
+    <None Remove="Images\Button_mouse-reaction-test.png" />
+    <None Remove="Images\button_static-reaction-test.png" />
+    <None Remove="Images\CarGame.png" />
+    <None Remove="Images\CurrencyConvertor.png" />
+    <None Remove="Images\Image-Target.png" />
+    <None Remove="Images\PlayerCar.png" />
+    <None Remove="Images\Reaction-Tests.png" />
+    <None Remove="Images\SimonGame.png" />
     <None Remove="Images\square1.jpeg" />
     <None Remove="Images\square2.png" />
+    <None Remove="Images\TicTacToe.png" />
+    <None Remove="Images\User-Manager.png" />
+    <None Remove="Images\Warning_get-ready.png" />
+    <None Remove="Sounds\Blue-Button.mp3" />
+    <None Remove="Sounds\Green-Button.mp3" />
+    <None Remove="Sounds\PlayerLose.mp3" />
+    <None Remove="Sounds\Red-Button.mp3" />
+    <None Remove="Sounds\Success.mp3" />
+    <None Remove="Sounds\Yellow-Button.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\PlayerCar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\PlayerLose.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\Success.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\Yellow-Button.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Sounds\Red-Button.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Sounds\Green-Button.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Sounds\Blue-Button.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\CarGame.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\CurrencyConvertor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SimonGame.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\TicTacToe.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Uno.UI" Version="4.10.26" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\square1.jpeg" />
-    <Resource Include="Images\square2.png" />
+    <Resource Include="Images\Bomb.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Button_click-now.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Button_easy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Button_hard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Button_im-ready.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Button_insane.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Button_medium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Button_mouse-reaction-test.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Button_static-reaction-test.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Image-Target.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Reaction-Tests.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\square1.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\square2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\User-Manager.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Warning_get-ready.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Projects\CarGame\Utils\" />
   </ItemGroup>
 
 </Project>

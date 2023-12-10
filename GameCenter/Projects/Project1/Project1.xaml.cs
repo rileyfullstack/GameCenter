@@ -1,66 +1,149 @@
-﻿using GameCenter.Projects.Project1.Models;
+﻿using gameCenter.Project1.UserManegment.Models;
 using GameCenter.Projects.Project1.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace GameCenter.Projects.Project1
+namespace gameCenter.Projects.Project1
 {
     public partial class Project1 : Window
     {
-        User _user;
-        List<User> users = new List<User> 
-            { 
-                new User("Bob", "bob@email.com", "Qaz123!123Qaz"),
-                new User("Sara", "Sara@email.com", "Qaz123!123Qaz"),
-                new User("Neomi", "Neomi@email.com", "Qaz123!123Qaz"),
-                new User("Abed", "Abed@email.com", "Qaz123!123Qaz"),
-            };
+        public UsersListHandler _listHandler;
+        public List<User1> _users;
+
+        private int _selectedUserId;
+
         public Project1()
         {
+            _listHandler = new UsersListHandler();
+            _users = _listHandler.UsersList;
+            _selectedUserId = 0;
+
             InitializeComponent();
-            UpdateDataGrid();
+
+            UsersDataGrid1.ItemsSource = _users;
+        }
+        private void On_Add_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (_listHandler.CheckIfEmailExists(UserEmail.Text))
+            {
+                MessageBox.Show("Email Already Taken!");
+                return;
+            }
+            if (CheckFields() && Validate.UserName(UserName) && Validate.Email(UserEmail))
+            {
+                _listHandler.AddUser(
+                    new User1(_users.Count + 1, UserName.Text, UserEmail.Text)
+                );
+
+                UpdateGrid();
+                ClearFields();
+            }
+        }
+        private void On_Remove_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (_selectedUserId == 0)
+            {
+                MessageBox.Show("Please Pick a User!");
+                return;
+            }
+            _listHandler.RemoveUser(_selectedUserId - 1);
+            UpdateGrid();
+        }
+        private void On_Update_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (_selectedUserId == 0)
+            {
+                MessageBox.Show("Please Pick a User!");
+                return;
+            }
+            _listHandler.UpdateUser(
+                new User1(_selectedUserId, UserName.Text, UserEmail.Text)
+            );
+
+            UpdateGrid();
+            ClearFields();
         }
 
-        private void Btn_Add_Click(object sender, RoutedEventArgs e)
+        private void On_ToggleUserLog_Button_Click(object sender, RoutedEventArgs e)
         {
-            TextBox box = (TextBox)sender;
-            if (Validate.UserName(box))
+            if (_selectedUserId == 0)
             {
-                users.Add(new User(Input_UserName.Text, Input_Email.Text, "Qaz123!123Qaz"));
-                UpdateDataGrid();
+                MessageBox.Show("Please Pick a User!");
+                return;
+            }
+            if (_listHandler.ToggleLogUser(_selectedUserId))
+            {
+                UpdateGrid();
+                return;
+            }
+            MessageBox.Show("User Status Is Freeze, cant log in!");
+        }
+        private void On_ToogleFreezeUser_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (_selectedUserId == 0)
+            {
+                MessageBox.Show("Please Pick a User!");
+                return;
+            }
+            _listHandler.ToogleFreezeUser(_selectedUserId);
+            UpdateGrid();
+        }
+
+        private void On_UserEmail_LostFocus(object sender, EventArgs e)
+        {
+            Validate.Email(UserEmail);
+        }
+
+        private void On_UserName_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Validate.UserName(UserName);
+
+        }
+
+        private void On_UsersDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (UsersDataGrid1.SelectedItem != null)
+            {
+                var selectedUser = (User1)UsersDataGrid1.SelectedItem;
+                _selectedUserId = selectedUser.Id;
+                UserName.Text = selectedUser.Name;
+                UserEmail.Text = selectedUser.Email;
+            }
+            else
+            {
+                _selectedUserId = 0;
+                UserName.Text = string.Empty;
+                UserEmail.Text = string.Empty;
             }
         }
 
-        private void UpdateDataGrid()
+
+        private void ClearFields()
         {
-            DataGrid1.ItemsSource = users.ToList();
+            UserEmail.Text = string.Empty;
+            UserName.Text = string.Empty;
+            _selectedUserId = 0;
         }
 
-        private void DataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private bool CheckFields()
         {
-            var idCell = DataGrid1.SelectedCells[0];
-            var nameCell = DataGrid1.SelectedCells[1];
-            var emailCell = DataGrid1.SelectedCells[2];
-
-            try
+            if (UserName.Text == String.Empty ||
+                UserName.Text == null ||
+                UserEmail.Text == String.Empty ||
+                UserEmail.Text == null)
             {
-                string id = ((TextBlock)idCell.Column.GetCellContent(idCell.Item)).Text;
-                Input_UserName.Text =((TextBlock)nameCell.Column.GetCellContent(nameCell.Item)).Text;
-                Input_Email.Text =((TextBlock)emailCell.Column.GetCellContent(emailCell.Item)).Text;
-                _user = users.Single(item => item.Id.ToString() == id);
+                MessageBox.Show("Please Fill All Details!");
+                return false;
             }
-            catch
-            {
-
-            }
+            return true;
         }
 
-        private void Btn_Remove_Click(object sender, RoutedEventArgs e)
+        private void UpdateGrid()
         {
-            users.Remove(_user);
-            UpdateDataGrid();
+            UsersDataGrid1.ItemsSource = _users.ToList();
         }
     }
 }

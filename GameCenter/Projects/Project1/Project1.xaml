@@ -1,4 +1,4 @@
-﻿<Window x:Class="GameCenter.Projects.Project1.Project1"
+﻿<Window x:Class="gameCenter.Projects.Project1.Project1"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -24,7 +24,7 @@
             <StackPanel Width="300">
                 <Label Content="User Name:"/>
                 <TextBox 
-                x:Name="Input_UserName"
+                x:Name="UserName"
                 BorderThickness="1,1,1,3"
                 Height="25"
                 >
@@ -38,7 +38,7 @@
             <StackPanel Width="300">
                 <Label Content="User Email:"/>
                 <TextBox 
-                    x:Name="Input_Email"
+                    x:Name="UserEmail"
                     BorderThickness="1,1,1,3"
                     Height="25"
                     >       
@@ -49,27 +49,23 @@
                     </TextBox.Resources>
                 </TextBox>
             </StackPanel>
-            <DataGrid x:Name="DataGrid1" SelectionChanged="DataGrid1_SelectionChanged"/>
+            <DataGrid x:Name="UsersDataGrid1" SelectionChanged="On_UsersDataGrid_SelectionChanged"/>
             <StackPanel>
                 <Button 
                     x:Name="Btn_Add" 
                     Content="Add" 
                     Width="100"
                     Height="25"
-                    Background="#FF78DA7E" Click="Btn_Add_Click"
+                    Background="#FF78DA7E" Click="On_Add_Button_Click"
                 />
                 <Button 
                     x:Name="Btn_Remove" 
                     Content="Remove" 
                     Width="100"
                     Height="25"
-                    Background="#FF78DA7E" Click="Btn_Remove_Click"
-                />  
+                    Background="#FF78DA7E" Click="On_Remove_Button_Click"
+                />
             </StackPanel>
-
-
-
-
         </StackPanel>
     </Grid>
 </Window>

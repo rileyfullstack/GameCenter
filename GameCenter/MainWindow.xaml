@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1400">
     <Grid>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
             <ColumnDefinition Width="1*" />
@@ -27,7 +27,9 @@
             Grid.ColumnSpan="3" 
             Background="AliceBlue"
             HorizontalContentAlignment="Center"
-            VerticalContentAlignment="Center" FontFamily="Arial Black" FontSize="40"
+            VerticalContentAlignment="Center" 
+            FontFamily="Arial Black" 
+            FontSize="40"
         />
 
         <Label 
@@ -43,29 +45,80 @@
             FontSize="16"
         />
 
+        <!-- TextBox for displaying project name -->
+        <TextBox x:Name="ProjectNameTextBox"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Top"
+                 Margin="0,100,0,0"
+                 Visibility="Hidden"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 IsReadOnly="True"
+                 TextAlignment="Center"
+                 FontFamily="Arial"
+                 FontSize="40" />
+
         <WrapPanel
             x:Name="GamesContainer"
             Grid.Row="1" 
             Grid.Column="1" 
             HorizontalAlignment="Center"
-            VerticalAlignment="Center"
+            VerticalAlignment="Top" 
+            Margin="0,180,0,0"
         >
             <Border CornerRadius="10">
-            <Image x:Name="Image1" 
-                   Source="/Images/square1.jpeg" 
+                <Image x:Name="Image1" 
+                   Source="/Images/User-Manager.png" 
                    Width="150" 
                    Margin="20" 
                    MouseEnter="OnMouseEnter"
-                   MouseLeave="OnMouseLeave" MouseLeftButtonUp="OnImage1Click"
-            />
+                   MouseLeave="OnMouseLeave" 
+                   MouseLeftButtonUp="OnImage1Click"
+                />
             </Border>
-
-            <Image x:Name="Image2" Source="/Images/square2.png" Width="150" Margin="20" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonUp="OnImage2Click"/>
-            <Image x:Name="Image3" Source="/Images/square1.jpeg" Width="150" Margin="20" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"/>
-            <Image x:Name="Image4" Source="/Images/square2.png" Width="150" Margin="20" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"/>
-            <Image x:Name="Image5" Source="/Images/square1.jpeg" Width="150" Margin="20" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"/>
-            <Image x:Name="Image6" Source="/Images/square2.png" Width="150" Margin="20" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"/>
-
+            <Border CornerRadius="10">
+                <Image x:Name="Image2" 
+                       Source="/Images/TicTacToe.png" 
+                       Width="150" 
+                       Margin="20" 
+                       MouseEnter="OnMouseEnter" 
+                       MouseLeave="OnMouseLeave" 
+                       MouseLeftButtonUp="OnImage2Click"/>
+            </Border>
+            <Image x:Name="Image3" 
+                   Source="/Images/CurrencyConvertor.png" 
+                   Width="150" 
+                   Margin="20" 
+                   MouseEnter="OnMouseEnter" 
+                   MouseLeave="OnMouseLeave"
+                   MouseLeftButtonUp="OnImage3Click"
+                   />
+            <Image x:Name="Image4" 
+                   Source="/Images/SimonGame.png" 
+                   Width="150" 
+                   Margin="20" 
+                   MouseEnter="OnMouseEnter" 
+                   MouseLeave="OnMouseLeave"
+                   MouseLeftButtonUp="Image4_MouseLeftButtonUp"
+                   />
+            <Image x:Name="Image5" 
+                Source="/Images/CarGame.png"
+                Width="150"
+                Margin="20" 
+                MouseEnter="OnMouseEnter" 
+                MouseLeave="OnMouseLeave"
+                MouseLeftButtonUp="Image5_MouseLeftButtonUp"
+                />
+            <Image x:Name="Image6" 
+                   Source="/Images/Reaction-Tests.png" 
+                   Width="150" 
+                   Margin="20" 
+                   MouseEnter="OnMouseEnter" 
+                   MouseLeave="OnMouseLeave" 
+                   MouseLeftButtonDown="Image6_MouseLeftButtonUp"/>
         </WrapPanel>
+
     </Grid>
 </Window>

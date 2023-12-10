@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace GameCenter.Projects.Project1.Models
+namespace gameCenter.Project1.UserManegment.Models
 {
-    public class User
+    public class User1
     {
         public static int count = 0;
         public int Id { get; set; }
@@ -10,15 +10,23 @@ namespace GameCenter.Projects.Project1.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public DateTime Created { get; set; }
+        public string Status { get; set; } // Added this
+        public DateTime LastLogIn { get; set; } // Assuming you wanted this
 
-        public User(string name, string email, string password) 
+        public User1(int id, string name, string email)
         {
+            Id = id;
             Name = name;
             Email = email;
-            Password = password;
+            Status = UserStatusTypes.Logged_Off.ToString();
             Created = DateTime.Now;
-            count++;
-            Id = count;
         }
+    }
+
+    public enum UserStatusTypes
+    {
+        Logged_In,
+        Logged_Off,
+        Freeze
     }
 }

@@ -21,5 +21,21 @@ namespace GameCenter.Projects.Project1.Utils
             box.BorderBrush = new SolidColorBrush(Colors.Black);
             return true;
         }
+        public static bool Email(TextBox box)
+        {
+            Regex regex = new Regex(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$");
+            Match match = regex.Match(box.Text);
+
+            if (!match.Success)
+            {
+                MessageBox.Show("Please enter a valid email address.");
+                box.BorderBrush = new SolidColorBrush(Colors.Red);
+                return false;
+            }
+
+            box.BorderBrush = new SolidColorBrush(Colors.Black);
+            return true;
+        }
+
     }
 }
