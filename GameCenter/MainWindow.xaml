@@ -119,6 +119,13 @@
                    MouseLeave="OnMouseLeave" 
                    MouseLeftButtonDown="Image6_MouseLeftButtonUp"/>
         </WrapPanel>
+        <TextBlock x:Name="LinkToWebsite" HorizontalAlignment="Center" Margin="0,123,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="310" Width="330" FontSize="40" Visibility="Visible" TextAlignment="Center">
+            <Run Text="Want to take a look at one of my front end website applications?"/>
+            <LineBreak/>
+            <Hyperlink NavigateUri="https://github.com/rileyfullstack/reactjs-project3" RequestNavigate="Hyperlink_RequestNavigate">
+                <Run Text="Check it out!"/>
+            </Hyperlink>
+        </TextBlock>
 
     </Grid>
 </Window>

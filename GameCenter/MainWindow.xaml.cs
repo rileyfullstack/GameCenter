@@ -103,5 +103,15 @@ namespace GameCenter
             presentation.OnStart(title, description, imageSource);
             presentation.ShowDialog();
         }
+
+        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e) //handle the link to the front end project on github
+        {
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = e.Uri.AbsoluteUri,
+                UseShellExecute = true
+            });
+            e.Handled = true;
+        }
     }
 }
